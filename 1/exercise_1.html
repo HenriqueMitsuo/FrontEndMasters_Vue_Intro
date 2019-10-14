@@ -1,0 +1,73 @@
+<!-- DIFICULDADE: 1 -->
+<!-- USAR: v-model.number e v-if -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+        .row {
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+        font-family: 'Work Sans', sans-serif;
+        }
+
+        input, span {
+        padding: 10px;
+        font-size: 30px;
+        font-family: 'Work Sans', sans-serif;
+        }
+
+        input {
+        width: 50px;
+        }
+
+        span {
+        width: 20px;
+        }
+
+        .second {
+        font-size: 18px;
+        }         
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <div class="row">
+            <!-- Usar o modificador v-model.number para alterar o input de String para Number -->
+            <input type="number" v-model.number="num1"></input>
+            <span>+</span>
+            <input type="number" v-model.number="num2"></input>
+            <span>=</span>
+            <span>{{ num1 + num2 }}</span>
+        </div>
+        <div class="row second">
+            <select v-model="name">
+                <option value="Taco - 1">Taco - 1</option>
+                <option value="Taco - 2">Taco - 2</option>
+            </select>
+            <!-- Usar v-if para que o output -->
+            <p v-if="name">My favorite kind of taco is {{name}}</p>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+                el: '#app',
+                data() {
+                    return {
+                        num1: 0,
+                        num2: 0,
+                        name: ''
+                    }
+                }
+            })
+    </script>
+</body>
+</html>
