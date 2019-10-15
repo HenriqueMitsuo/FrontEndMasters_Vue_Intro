@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h3>User input:<input type="text" v-model.lazy="input"></h3>
+        <p v-if="input"><h4>Default: {{input}}</h4></p>
+        <p v-if="input"><h4>Computed: {{testComputed}}</h4></p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    input: '',
+                }
+            },
+            computed: {
+                testComputed() {
+
+                    return `this is a computed input ${this.input}`; 
+                }
+            },
+        })
+    </script>
+</body>
+</html>
